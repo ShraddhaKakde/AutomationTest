@@ -1,0 +1,122 @@
+
+//<!-- saved from url=(0040)file:///C:/Users/Admin/Desktop/test.html -->
+
+<!-- saved from url=(0040)file:///D:/Shraddha/Workspace/PlayWithNumbers/test.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"> 
+<style></style>
+</head>
+<body style="
+    background: bisque;
+    text-align: center;
+    font-size: larger;
+    font-family: cursive;
+    padding: 25%;
+">
+<input type="text" id="number" placeholder="Enter The Number" style="
+    border-style: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 10px;
+">
+<input type="button" onclick="getProperty()" value="Check" id="checkButton" style="
+    background: black;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 20px;
+">
+<p id="res">Number is odd or even</p>
+<p id="armstrRes">Number is Armstrong or not</p>
+<p id="palstrRes">Number is Palindrome or not</p>
+<p id="factorRes">factor of given number</p>
+
+<script> 
+
+
+
+
+function getProperty() {
+
+oddEven();
+armstr();
+palstr();
+factor();
+}
+
+function oddEven() {
+var num = document.getElementById("number").value;
+if(num % 2 == 0) {
+document.getElementById("res").innerHTML = "Number is even";
+
+}
+else {
+document.getElementById("res").innerHTML = "Number is odd";
+}
+
+
+}
+function armstr()
+{
+var arm=0,a,b,c,d,num;
+num=Number(document.getElementById("number").value);
+
+temp=num;
+while(temp>0)
+{
+a=temp%10;
+temp=parseInt(temp/10); // convert float into Integer
+arm=arm+a*a*a;
+}
+if(arm==num)
+{
+//alert("Armstrong number");
+document.getElementById("armstrRes").innerHTML = "Number is Armstrong";
+}
+else
+{
+//alert("Not Armstrong number");
+document.getElementById("armstrRes").innerHTML = "Number is not Armstrong";
+}
+}
+
+function palstr()
+	{
+		var rem, temp, final = 0;
+		
+		num=Number(document.getElementById("number").value);
+		temp = num;
+		while(num>0)
+		{
+			rem = num%10;
+			num = parseInt(num/10);
+			final = final*10+rem;
+		}
+		if(final==temp)
+		{
+			//window.alert("The inputed number is Palindrome");
+			document.getElementById("palstrRes").innerHTML = "Number is Palindrome";
+
+		}
+		else
+		{
+			//window.alert("The inputted number is not palindrome");
+			document.getElementById("palstrRes").innerHTML = "Number is not Palindrome";
+
+		}
+	}
+function factor() {
+
+num=Number(document.getElementById("number").value);
+    const factors = num => Array
+    .from(Array(num + 1), (_, i) => i)
+    .filter(i => num % i === 0)
+
+ console.log(factors(num)); 
+document.getElementById("factorRes").innerHTML =factors(num);
+}
+
+
+</script>
+  
+</body></html>
